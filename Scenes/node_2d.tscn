@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf5bu65yb0j82"]
+
+[ext_resource type="PackedScene" uid="uid://fio5jwxpocbj" path="res://Scenes/big_string_player.tscn" id="1_3io7r"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_3io7r")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+debug_color = Color(0.670588, 0, 0.431373, 0.72549)

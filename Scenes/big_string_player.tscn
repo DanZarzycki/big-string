@@ -1,5 +1,42 @@
-[gd_scene format=3 uid="uid://fio5jwxpocbj"]
+[gd_scene load_steps=6 format=3 uid="uid://fio5jwxpocbj"]
+
+[ext_resource type="Texture2D" uid="uid://d0xrhjwxjx0am" path="res://Assets/Sprites/BigString Character.png" id="1_i7yvp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbhu7"]
+atlas = ExtResource("1_i7yvp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj2gb"]
+atlas = ExtResource("1_i7yvp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t4ck"]
+atlas = ExtResource("1_i7yvp")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwapy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbhu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj2gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t4ck")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dwapy")

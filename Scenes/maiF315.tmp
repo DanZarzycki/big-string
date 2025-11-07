@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf5bu65yb0j82"]
+
+[ext_resource type="PackedScene" uid="uid://fio5jwxpocbj" path="res://Scenes/big_string_player.tscn" id="1_5w260"]
+[ext_resource type="Texture2D" uid="uid://bfgp4qn0pnkru" path="res://Assets/Backgrounds/parallax-mountain-bg.png" id="1_46wu6"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_w0rva"]
+[ext_resource type="Script" path="res://Scenes/big_string_player.gd" id="3_xbuok"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_it46y"]
+radius = 6.5
+height = 39.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_w0rva")
+
+[node name="Parallax-mountain-bg" type="Sprite2D" parent="."]
+position = Vector2(579.5, 327)
+scale = Vector2(4.25368, 4.0875)
+texture = ExtResource("1_46wu6")
+
+[node name="Big String" parent="." instance=ExtResource("1_5w260")]
+position = Vector2(-2, -10)
+scale = Vector2(2, 2)
+script = ExtResource("3_xbuok")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Big String"]
+position = Vector2(3.5, 5)
+shape = SubResource("CapsuleShape2D_it46y")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Big String"]
+position = Vector2(2, 7.5)
+
+[node name="Background" type="Sprite2D" parent="."]

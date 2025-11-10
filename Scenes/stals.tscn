@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://l5alx05v8b42"]
+
+[ext_resource type="Script" path="res://Scripts/stals.gd" id="1_6mekv"]
+[ext_resource type="Texture2D" uid="uid://bj6di2hi8gget" path="res://Assets/Backgrounds/parallax-mountain-foreground-trees.png" id="2_s2br3"]
+
+[node name="Stals" type="Area2D"]
+position = Vector2(-3, 199)
+script = ExtResource("1_6mekv")
+
+[node name="stalactite" type="Sprite2D" parent="."]
+position = Vector2(594, 423)
+rotation = 3.14159
+scale = Vector2(3.64388, 10.3263)
+texture = ExtResource("2_s2br3")
+offset = Vector2(0, 50)
+region_enabled = true
+region_rect = Rect2(102, 79, 50, 81)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(586, 22)
+scale = Vector2(12.95, 1)
+polygon = PackedVector2Array(0.0772171, -7, -2.08494, -534, 2.39382, -533)
+
+[node name="stalagmite" type="Sprite2D" parent="."]
+position = Vector2(592, 139)
+scale = Vector2(3.76087, 9.79786)
+texture = ExtResource("2_s2br3")
+offset = Vector2(0, 20)
+region_enabled = true
+region_rect = Rect2(370, 81, 46, 79)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2(588, 215)
+polygon = PackedVector2Array(0, 2, 35, 506, -37, 506)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

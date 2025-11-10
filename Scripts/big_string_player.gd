@@ -28,3 +28,7 @@ func _physics_process(delta):
 
 func climb():
 	velocity.y = CLIMB_SPEED
+
+
+func _on_ground_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

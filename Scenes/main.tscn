@@ -1,32 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf5bu65yb0j82"]
+[gd_scene load_steps=7 format=3 uid="uid://cf5bu65yb0j82"]
 
 [ext_resource type="PackedScene" uid="uid://fio5jwxpocbj" path="res://Scenes/big_string_player.tscn" id="1_5w260"]
 [ext_resource type="Texture2D" uid="uid://bfgp4qn0pnkru" path="res://Assets/Backgrounds/parallax-mountain-bg.png" id="1_46wu6"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_w0rva"]
-[ext_resource type="PackedScene" uid="uid://l5alx05v8b42" path="res://Scenes/stals.tscn" id="2_20ll7"]
 [ext_resource type="Script" path="res://Scripts/big_string_player.gd" id="3_xbuok"]
-[ext_resource type="Script" path="res://Scripts/ground.gd" id="5_pcrem"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_it46y"]
-radius = 7.16666
-height = 40.6667
+radius = 16.0
+height = 37.3333
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bv0x"]
-radius = 3.33334
-height = 17.3333
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3thi"]
-size = Vector2(250.5, 64.5)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_p88gx"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fslfy"]
+height = 24.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w0rva")
-stals_scene = ExtResource("2_20ll7")
 
 [node name="Parallax-mountain-bg" type="Sprite2D" parent="."]
-position = Vector2(579.5, 327)
-scale = Vector2(4.25368, 4.0875)
+position = Vector2(349, 701)
+scale = Vector2(9.254, 8.893)
 texture = ExtResource("1_46wu6")
 
 [node name="BigString" parent="." instance=ExtResource("1_5w260")]
@@ -37,47 +28,15 @@ script = ExtResource("3_xbuok")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BigString"]
 physics_interpolation_mode = 1
-position = Vector2(3.5, 5)
+position = Vector2(0.666667, 15.3333)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_it46y")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="BigString"]
 position = Vector2(2, 7.5)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="BigString"]
-position = Vector2(4, -12)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_1bv0x")
-debug_color = Color(0.428552, 0.601431, 0.0494769, 0.42)
+position = Vector2(0.666667, -7.33333)
+shape = SubResource("CapsuleShape2D_fslfy")
 
 [node name="Background" type="Sprite2D" parent="."]
-
-[node name="Ground" type="Area2D" parent="."]
-position = Vector2(64, 664)
-script = ExtResource("5_pcrem")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-physics_interpolation_mode = 1
-position = Vector2(60, -3)
-shape = SubResource("RectangleShape2D_x3thi")
-
-[node name="Top" type="StaticBody2D" parent="."]
-collision_layer = 2
-
-[node name="Polygon2D" type="Polygon2D" parent="Top"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-71, -39)
-texture = SubResource("ViewportTexture_p88gx")
-polygon = PackedVector2Array(62, 33, 1240, 33, 1241, 100, 60, 101)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Top"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(-71, -39)
-polygon = PackedVector2Array(-4, -4, 1265, -8, 1262, 102, -29, 100)
-
-[node name="StalTimer" type="Timer" parent="."]
-wait_time = 1.51
-
-[connection signal="body_entered" from="Ground" to="Ground" method="_on_body_entered"]
-[connection signal="timeout" from="StalTimer" to="." method="_on_stal_timer_timeout"]

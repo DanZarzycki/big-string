@@ -16,8 +16,7 @@
 ### Button mashing with pickaxe to get treasure when you land
 
 #### Goals of Mechanic
-
-
+* A fun release when you reach the bottom of the pit, before things get tough again with the curses
 
 ### Curses
 When you dig up treasure, a random curse is assigned. Curse should do the following:

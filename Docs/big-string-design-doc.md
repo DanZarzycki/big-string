@@ -13,7 +13,7 @@
 * You play Belo, a dwarf from the Big String clan, using the big string to look for treasure.
 
 ## Mechanics
-### Mechanic 1
+### Button mashing with pickaxe to get treasure when you land
 
 #### Goals of Mechanic
 

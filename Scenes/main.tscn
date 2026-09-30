@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf5bu65yb0j82"]
+[gd_scene load_steps=8 format=3 uid="uid://cf5bu65yb0j82"]
 
 [ext_resource type="PackedScene" uid="uid://fio5jwxpocbj" path="res://Scenes/big_string_player.tscn" id="1_5w260"]
 [ext_resource type="Texture2D" uid="uid://bfgp4qn0pnkru" path="res://Assets/Backgrounds/parallax-mountain-bg.png" id="1_46wu6"]
@@ -6,8 +6,10 @@
 [ext_resource type="Script" path="res://Scripts/big_string_player.gd" id="3_xbuok"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_it46y"]
-radius = 16.0
+radius = 10.0
 height = 37.3333
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_skva2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fslfy"]
 height = 24.0
@@ -20,22 +22,23 @@ position = Vector2(349, 701)
 scale = Vector2(9.254, 8.893)
 texture = ExtResource("1_46wu6")
 
-[node name="BigString" parent="." instance=ExtResource("1_5w260")]
+[node name="Belo" parent="." instance=ExtResource("1_5w260")]
 position = Vector2(75, 298)
 scale = Vector2(1.5, 1.5)
 collision_mask = 2
 script = ExtResource("3_xbuok")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BigString"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Belo"]
 physics_interpolation_mode = 1
-position = Vector2(0.666667, 15.3333)
+position = Vector2(0.666667, 10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_it46y")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="BigString"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Belo"]
 position = Vector2(2, 7.5)
+sprite_frames = SubResource("SpriteFrames_skva2")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="BigString"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Belo"]
 position = Vector2(0.666667, -7.33333)
 shape = SubResource("CapsuleShape2D_fslfy")
 

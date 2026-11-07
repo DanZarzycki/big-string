@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Scripts/big_string_player.gd" id="3_xbuok"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_it46y"]
-radius = 10.0
 height = 37.3333
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_skva2"]
@@ -17,13 +16,15 @@ height = 24.0
 [node name="Main" type="Node2D"]
 script = ExtResource("1_w0rva")
 
-[node name="Parallax-mountain-bg" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="Parallax-mountain-bg" type="Sprite2D" parent="Background"]
 position = Vector2(349, 701)
 scale = Vector2(9.254, 8.893)
 texture = ExtResource("1_46wu6")
 
 [node name="Belo" parent="." instance=ExtResource("1_5w260")]
-position = Vector2(75, 298)
+position = Vector2(324, 132)
 scale = Vector2(1.5, 1.5)
 collision_mask = 2
 script = ExtResource("3_xbuok")
@@ -41,5 +42,3 @@ sprite_frames = SubResource("SpriteFrames_skva2")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Belo"]
 position = Vector2(0.666667, -7.33333)
 shape = SubResource("CapsuleShape2D_fslfy")
-
-[node name="Background" type="Sprite2D" parent="."]
